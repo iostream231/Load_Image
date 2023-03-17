@@ -26,10 +26,6 @@ int loadjpeg(vglImageData * image, char * filename) {
         return -1;
 }
 
-
-
-
-
 // Load A Jpeg Image From A File 
 int loadjpeg_file(vglImageData * image, FILE * infile) {
     if( image )
@@ -43,6 +39,8 @@ int loadjpeg_file(vglImageData * image, FILE * infile) {
 
     cinfo.err = jpeg_std_error(&jerr);
     jpeg_create_decompress(&cinfo);
+
+    jpeg_stdio_src(&cinfo, infile);
     
     // Filling In Some Default Data 
     image->mipmapCount = 1;
@@ -97,3 +95,7 @@ int unloadjpeg(vglImageData * image) {
     
 }
 
+
+int is_jpeg(char * filename) {
+
+}
