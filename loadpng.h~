@@ -20,7 +20,7 @@
 // Functions 
 int loadpng(vglImageData *image, char *filename);
 static int loadpng_file(vglImageData *image, FILE *file);
-int unloadpng(vglImageData * image);
+int unload_png(vglImageData * image);
 static int readpng_init(vglImageData *image, FILE *fp, png_structp , png_infop, int * color_type, int * bit_depth);
 static int readpng_bgcolor(png_color_16p color, png_structp png_ptr, png_infop info_ptr);
 static int readpng_image(vglImageData *image, png_structp png_ptr, png_infop info_ptr, const int color_type, const int bit_depth, png_color_16p background_color, int is_default_bg); 
@@ -112,7 +112,7 @@ int loadpng_file(vglImageData * image, FILE * fp) {
 
     return 0;
 }
-int unloadpng(vglImageData *image) {
+int unload_png(vglImageData *image) {
     if( image ) {
         free(image->mip[0].data);
         free(image);
