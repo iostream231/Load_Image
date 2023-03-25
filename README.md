@@ -42,19 +42,13 @@ It fills the available options and also recommends the texture's target, type, f
 It also supports multiple mipmaps and texture arrays (even tho I didn't work on a texture type that supports these)
 
 ## Image Reading Functions :
-After you included the desired header file. You can use the `load{image_type}(vglImageData * data, char * filename)` function. It allocates a vglImageData struct 
-and fills it with informations from the image.
+After you included the desired header file. You can use the `load{image_type}(vglImageData * data, char * filename)` function. it fills a vglImageData struct with informations from the image.
 A Zero-Return Value Means Success, A non-zero return value means an error
 For Example :
 ```c
-vglImageData * image = NULL; // Make Sure to initialize it to NULL.
-int retval = loadpng(image, "./bg.png");
+vglImageData myImage = { 0 }; // Make sure to allocate/initialize it.
+int retval = loadpng(&image, "./bg.png");
 if(retval)
   exit(EXIT_FAILURE);
-```
-When You Finish with the image, just unload it using `unloadimage{image_type}(vglImageFata * data)`
-For Example :
-```c
-unloadpng(image);
 ```
 
