@@ -14,7 +14,7 @@
 # define PNG_READ_ERROR 2
 # define PNG_ILLEGAL_BIT_DEPTH_ERROR 9
 # define PNG_ILLEGAL_COLOR_TYPE_ERROR 10
-# define IMAGE_ALREADY_EXIST_ERROR 19
+# define IMAGE_DOESNT_EXIST_ERROR 19
 
 
 // Functions 
@@ -43,9 +43,7 @@ int loadpng(vglImageData * image, char * filename) {
 int loadpng_file(vglImageData * image, FILE * fp) {
     
     if( !image )
-        image = (vglImageData *) malloc(sizeof(*image));
-    else 
-        return IMAGE_ALREADY_EXIST_ERROR;
+        return IMAGE_DOESNT_EXIST_ERROR;
     // + Checking For The 8 Byte PNG Signal 
     unsigned char sig[8];
     fread(sig, 8, 1, fp);
