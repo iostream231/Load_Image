@@ -4,7 +4,7 @@ A C library for loading images as textures to use with OpenGL. It isn't complete
 # Installation 
 I thought of making a Cmake File but... It'll be easier if you just copy it to your project and include the header files.
 ## Dependencies :
-  For Loading PNG Files You need **libpng 1.5+**
+  For Loading PNG Files You need **libpng 1.5+** <br />
   For Loading JPEG Files You need **libjpeg-dev**
  
 # Usage 
